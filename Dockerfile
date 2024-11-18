@@ -3,7 +3,10 @@ FROM ros:jazzy-ros-core
 ENV ROS_DISTRO jazzy
 
 RUN apt-get update -y
-RUN apt-get install -y ros-${ROS_DISTRO}-mavros ros-${ROS_DISTRO}-mavros-extras ros-${ROS_DISTRO}-mavros-msgs
+RUN apt-get install -y ros-${ROS_DISTRO}-mavros \
+    ros-${ROS_DISTRO}-mavros-extras \
+    ros-${ROS_DISTRO}-mavros-msgs \
+    ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
 
 RUN wget https://raw.githubusercontent.com/mavlink/mavros/ros2/mavros/scripts/install_geographiclib_datasets.sh
 RUN bash ./install_geographiclib_datasets.sh   
