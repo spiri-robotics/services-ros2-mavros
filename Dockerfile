@@ -1,6 +1,6 @@
 FROM ros:jazzy-ros-core
 
-ENV ROS_DISTRO jazzy
+ENV ROS_DISTRO=jazzy
 
 RUN apt-get update -y
 RUN apt-get install -y ros-${ROS_DISTRO}-mavros \
