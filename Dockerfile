@@ -1,24 +1,25 @@
-FROM ros:jazzy-ros-core
-
+FROM git.spirirobotics.com/spiri/ros:jazzy
 ENV ROS_DISTRO=jazzy
 
-RUN apt-get update -y
-RUN apt-get install -y ros-${ROS_DISTRO}-mavros \
-    ros-${ROS_DISTRO}-mavros-extras \
-    ros-${ROS_DISTRO}-mavros-msgs \
-    ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+# This is already a part of the base ros 2 jazzy image from spiri
 
-RUN wget https://raw.githubusercontent.com/mavlink/mavros/ros2/mavros/scripts/install_geographiclib_datasets.sh
-RUN bash ./install_geographiclib_datasets.sh   
+# RUN apt-get update -y && apt-get install -y \ 
+#     ros-${ROS_DISTRO}-mavros \
+#     ros-${ROS_DISTRO}-mavros-extras \
+#     ros-${ROS_DISTRO}-mavros-msgs \
+#     ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
 
-RUN apt-get clean
+# RUN apt-get clean
 
+# RUN wget https://raw.githubusercontent.com/mavlink/mavros/ros2/mavros/scripts/install_geographiclib_datasets.sh
+# RUN bash ./install_geographiclib_datasets.sh   
 
-COPY ./ros_entrypoint.sh /ros_entrypoint.sh
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
-COPY ./config/px4_pluginlists.yaml /opt/ros/${ROS_DISTRO}/share/mavros/launch/
-COPY ./config/px4_config.yaml /opt/ros/${ROS_DISTRO}/share/mavros/launch/
+RUN /bin/bash -c "echo \"source /opt/ros/${ROS_DISTRO}/setup.bash\" >> ~/.bashrc"
 
+COPY ./config/spiri_apm_pluginlists.yaml /opt/ros/${ROS_DISTRO}/share/mavros/launch/
 
-RUN chmod +x ./ros_entrypoint.sh
-HEALTHCHECK --interval=60s --timeout=5s --retries=3 CMD /ros_entrypoint.sh ros2 topic list
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]

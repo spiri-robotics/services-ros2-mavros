@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mavros2:
+    build:
+        context: .
+        dockerfile: Dockerfile
+    command: ros2 launch mavros apm.launch fcu_url:="udp://0.0.0.0:14560@:14555" namespace:="/spiri_mu_1" tgt_system:="1"
+    #command: tail -f /dev/null
+    stdin_open: true
+    tty: true
+    restart: always
+    network_mode: host
+    ipc: host
+    entrypoint: ["/entrypoint.sh"]
+    ulimits:
+      nofile:
+        soft: 1024
+        hard: 524288

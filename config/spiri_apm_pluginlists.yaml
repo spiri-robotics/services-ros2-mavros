@@ -1,0 +1,40 @@
+/**:
+  ros__parameters:
+    plugin_denylist:
+      - actuator_control
+      - ftp
+      - manual_control
+      - nav_controller_output
+      - rallypoint
+      - rc_io
+      - wind_estimation
+      - cam_imu_sync
+      - cellular_status
+      - companion_process_status
+      - distance_sensor
+      - esc_status
+      - esc_telemetry
+      - fake_gps
+      - gps_rtk
+      - guided_target
+      - hil
+      - landing_target
+      - log_transfer
+      - mocap_pose_estimate
+      - obstacle_distance
+      - optical_flow
+      - play_tune
+      - px4flow
+      - rangefinder
+      - tdr_radio
+      - trajectory
+      - tunnel
+      - vfr_hud
+      - vision_pose
+      - vision_speed
+      - wheel_odometry
+      - debug_value
+      - image_pub
+      - vibration
+      - altitude
+      - vision_speed_estimate
