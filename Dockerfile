@@ -18,7 +18,7 @@ ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 RUN /bin/bash -c "echo \"source /opt/ros/${ROS_DISTRO}/setup.bash\" >> ~/.bashrc"
 
-COPY ./config/spiri_apm_pluginlists.yaml /opt/ros/${ROS_DISTRO}/share/mavros/launch/
+COPY ./config/apm_pluginlists.yaml /opt/ros/${ROS_DISTRO}/share/mavros/launch/
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

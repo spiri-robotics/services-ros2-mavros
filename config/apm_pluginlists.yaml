@@ -1,16 +1,22 @@
 /**:
   ros__parameters:
     plugin_denylist:
+      # common
       - actuator_control
+      - altitude
       - ftp
       - manual_control
       - nav_controller_output
       - rallypoint
       - rc_io
       - wind_estimation
+      # extras
+      - adsb
       - cam_imu_sync
+      - camera
       - cellular_status
       - companion_process_status
+      - debug_value
       - distance_sensor
       - esc_status
       - esc_telemetry
@@ -20,8 +26,10 @@
       - hil
       - landing_target
       - log_transfer
+      - mag_calibration_status
       - mocap_pose_estimate
       - obstacle_distance
+      - onboard_computer_status
       - optical_flow
       - play_tune
       - px4flow
@@ -30,11 +38,8 @@
       - trajectory
       - tunnel
       - vfr_hud
+      - vibration
       - vision_pose
       - vision_speed
       - wheel_odometry
-      - debug_value
-      - image_pub
-      - vibration
-      - altitude
-      - vision_speed_estimate
+      
