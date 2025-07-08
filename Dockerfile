@@ -1,5 +1,5 @@
-FROM git.spirirobotics.com/spiri/ros:jazzy
-ENV ROS_DISTRO=jazzy  
+FROM ghcr.io/spiri-robotics/ros:jazzy
+ENV ROS_DISTRO=jazzy
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
