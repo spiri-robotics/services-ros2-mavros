@@ -21,6 +21,10 @@ jobs:
       packages: write
       # 
     steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        continue-on-error: true # git.spirirobotics.com sandbox already has qemu and won't permit installing it twice
+
       #- name: install docker
       #  run: apt install moby-cli -y    
       - name: Checkout repository
