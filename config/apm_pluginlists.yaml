@@ -25,7 +25,6 @@
       - guided_target
       - hil
       - landing_target
-      - log_transfer
       - mag_calibration_status
       - mocap_pose_estimate
       - obstacle_distance
