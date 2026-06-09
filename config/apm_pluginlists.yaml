@@ -21,7 +21,6 @@
       - esc_status
       - esc_telemetry
       - fake_gps
-      - gps_rtk
       - guided_target
       - hil
       - landing_target
